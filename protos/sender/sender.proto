@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package sender;
+
+// The go_package option: module path + subdirectory and alias after the semicolon.
+option go_package = "github.com/efealtar/protos/sender;sender";
+
+service MessageService {
+    rpc SendMessage(MessageRequest) returns (MessageResponse) {}
+}
+
+message MessageRequest {
+    double amount = 1;
+    string address = 2;
+}
+
+message MessageResponse {
+    string status = 1;
+}
